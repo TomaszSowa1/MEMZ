@@ -11,8 +11,16 @@
         <br>
         <br>
         <div class="login-container">
-            <form>
-                <input type="text" name="username" placeholder="email@email.com">
+            <form action="login" method="POST">
+                <div class="message">
+                    <?php if(isset($messages)){
+                        foreach($messages as $message){
+                            echo $message;
+                        }
+                    }
+                    ?>
+                </div>
+                <input type="text" name="email" placeholder="email@email.com">
                 <input type="password" placeholder="password" name="password">
                 <div class="login-btn"><button type="submit"></button></div>
             </form>

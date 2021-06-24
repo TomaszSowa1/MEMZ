@@ -1,11 +1,16 @@
 <?php
 
 require_once 'src/controllers/DefaultController.php';
+require_once 'src/controllers/SecurityController.php';
 
 class Routing{
     public static $routes;
 
     public static function get($url,$contoller){
+        self::$routes[$url]=$contoller;
+    }
+
+    public static function post($url,$contoller){
         self::$routes[$url]=$contoller;
     }
 
@@ -16,8 +21,9 @@ class Routing{
         }
 
         //todo contorller method
-        $contoller = self::$routes[$action];
-        $object = new $contoller;
+        $controller = self::$routes[$action];
+        $object = new $controller;
+        $action = $action ?: 'login';
 
         $object->$action();
 

@@ -14,16 +14,16 @@ class User{
 
     }
     public function getEmail():string {
-        return $this->$emial;
+        return $this->emial;
     }
     public function getPassword():string{
-        return $this->$password;
+        return $this->password;
     }
     public function getName():string{
-        return $this->$name;
+        return $this->name;
     }
     public function getSurname():string{
-        return $this->$surname;
+        return $this->surname;
     }
     public function setEmail(string $email){
         $this->$email = $email;

@@ -14,6 +14,12 @@ class DefaultController extends AppController{
 
     }
 
+    public function mainpage(){
+
+        $this->render('mainpage');
+
+    }
+
 
     
 }
