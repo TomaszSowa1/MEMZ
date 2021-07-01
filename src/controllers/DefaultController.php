@@ -19,6 +19,26 @@ class DefaultController extends AppController{
         $this->render('mainpage');
 
     }
+    public function register(){
+
+        $this->render('register');
+
+    }
+    public function addtask(){
+
+        $this->render('addtask');
+
+    }
+    public function edittask(){
+
+        $this->render('edittask');
+
+    }
+    public function alltasks(){
+
+        $this->render('alltasks');
+
+    }
 
 
     

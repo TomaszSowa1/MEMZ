@@ -8,7 +8,11 @@ $path = parse_url($path, PHP_URL_PATH);
 Routing::get('','DefaultController');
 Routing::get('mainpage','DefaultController');
 Routing::get('index','DefaultController');
+Routing::get('register','SecurityController');
 Routing::post('login','SecurityController');
+Routing::post('alltasks','tasksController');
+Routing::post('addtask','tasksController');
+Routing::post('edittask','tasksController');
 
 Routing::run($path);
 

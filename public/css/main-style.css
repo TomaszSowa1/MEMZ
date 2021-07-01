@@ -81,7 +81,31 @@ body {
     opacity: 1;
 }
 
+.register-container {
+    margin: 0 auto;
+    display: flex;
+    width: 458px;
+    height: 700px; 
+    background: #D6D6D6B0;
+    border: 1px solid #707070;
+    border-radius: 82px;
+    opacity: 1;
+}
+
 form.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 40vh;
+    background: #FFFFFFE0 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 6px #00000029;
+    border: 1px solid #707070;
+    border-radius: 33px;
+}
+
+form.register {
     display: flex;
     flex-direction: column;
     justify-content: center;

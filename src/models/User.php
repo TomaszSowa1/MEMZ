@@ -5,14 +5,65 @@ class User{
     private $password;
     private $name;
     private $surname;
+    private $phone;
+    private $enabled;
+    private $salt;
+    private $created_dt;
 
-    public function __construct(string $emial,string $password,string $name,string $surname){
+    public function __construct($emial, $password, $name, $surname, $phone, $enabled, $salt, $created_dt)
+    {
         $this->emial = $emial;
         $this->password = $password;
         $this->name = $name;
         $this->surname = $surname;
-
+        $this->phone = $phone;
+        $this->enabled = $enabled;
+        $this->salt = $salt;
+        $this->created_dt = $created_dt;
     }
+
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    public function setPhone($phone): string
+    {
+        $this->phone = $phone;
+    }
+
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled($enabled): bool
+    {
+        $this->enabled = $enabled;
+    }
+
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    public function setSalt($salt): string
+    {
+        $this->salt = $salt;
+    }
+
+    public function getCreatedDt()
+    {
+        return $this->created_dt;
+    }
+
+    public function setCreatedDt($created_dt): Date
+    {
+        $this->created_dt = $created_dt;
+    }
+
+
+
     public function getEmail():string {
         return $this->emial;
     }
