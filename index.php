@@ -13,6 +13,7 @@ Routing::post('login','SecurityController');
 Routing::post('alltasks','tasksController');
 Routing::post('addtask','tasksController');
 Routing::post('edittask','tasksController');
+Routing::post('updateUser','SecurityController');
 
 Routing::run($path);
 

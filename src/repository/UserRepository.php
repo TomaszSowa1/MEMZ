@@ -14,7 +14,7 @@ class UserRepository extends Repository{
             return null;
         }
         return new User(
-            $user['email'],$user['password'],$user['name'],$user['surname']
+            $user['email'],$user['password'],$user['name'],$user['surname'],$user['phone'],$user['enabled'],$user['salt'],$user['created_dt']
         );
     }
 
@@ -40,27 +40,17 @@ class UserRepository extends Repository{
 
     public function updateUser(User $user){
         
-        $stmt = $this->database->connect()->prepare('
-            UPDATE users set password=:password,name=:name,surname=:surname,phone=:phone
-            where email=:email;
-        ');
         $data=[
             'email'=>$user->getEmail(),
             'password'=>$user->getPassword(),
             'name'=>$user->getName(),
             'surname'=>$user->getSurname(),
             'phone'=>$user->getPhone(),
-        ]
-        $stmt->execute([
-            $user->getEmail() ,
-            $user->getPassword() ,
-            $user->getName() ,
-            $user->getSurname() ,
-            $user->getPhone() ,
-            $user->getEnabled() ,
-            $user->getSalt() ,
-            $user->getCreatedDt() ,
-        ]);
+        ];
+        $stmt = $this->database->connect()->prepare('
+            UPDATE users set password=:password,name=:name,surname=:surname,phone=:phone
+            where email=:email;
+        ')->execute($data);
     }
 
 

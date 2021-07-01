@@ -7,7 +7,7 @@
 <body>
 <?php include('_Layout.php');?>
 <div class="container" style="margin: 0px;">
-    <h2>Add task</h2>
+    <h2>Edit task</h2>
     <div class="message">
                     <?php if(isset($messages)){
                         foreach($messages as $message){

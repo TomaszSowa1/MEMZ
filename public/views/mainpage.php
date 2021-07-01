@@ -7,13 +7,6 @@
 <body>
 <?php include('_Layout.php');?>
     <div class="container">
-        yep
-        <?php
-
-echo date( "Y-m-d", strtotime( "2009-01-31 +1 month" ) );
-?>
-$time_input = ; 
-$date_input = ; 
-print_r($date_input); 
+        <h1>RZECZY</h1>
     </div>
 </body>

@@ -32,6 +32,7 @@ class SecurityController extends AppController{
     public function register()
     {
         if ($this->isPost()) {
+            $userRepository = new UserRepository();
             $this_email = $_POST['email'];
             $this_password = $_POST['password'];
             $this_confirmedPassword = $_POST['confirmedPassword'];
@@ -44,10 +45,10 @@ class SecurityController extends AppController{
                 return $this->render('register', ['messages' => ['Please provide proper password']]);
             }
 
-            $user = new User($this_email, sha1(md5($this_password)), $this_name, $this_surname,$this_phone,true,'',date(now()));
-            $this->userRepository->addUser($user);
+            $user = new User($this_email, sha1(md5($this_password)), $this_name, $this_surname,$this_phone,true,'',date("Y/m/d"));
+            $userRepository->addUser($user);
 
-            return $this->render('register', ['messages' => ['You\'ve been succesfully registrated!']]);
+            return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);
         }else{
             return $this->render('register');
         }
@@ -55,15 +56,20 @@ class SecurityController extends AppController{
 
     public function updateUser()
     {
+        $userRepository = new UserRepository();
         if($this->isGet()){
-            $email='email@email.com';
-            $this_user = $this->userRepository->getUser($email);
+            $that_email='tomasz@sowa.com';
+            $this_user = $userRepository->getUser($that_email);
             return $this->render('updateUser', ['model' => $this_user]);
         }
         elseif ($this->isPost()) {
             $this_email = $_POST['email'];
-            $this_password = $_POST['password'];
-            $this_confirmedPassword = $_POST['confirmedPassword'];
+            $this_password = sha1(md5($_POST['password']));
+            $this_confirmedPassword = sha1(md5($_POST['confirmedPassword']));
+            if($_POST['password']==null){
+                $this_password=$_POST['password_b'];
+                $this_confirmedPassword=$_POST['password_b'];
+            }
             $this_name = $_POST['name'];
             $this_surname = $_POST['surname'];
             $this_phone = $_POST['phone'];
@@ -73,10 +79,11 @@ class SecurityController extends AppController{
                 return $this->render('updateUser', ['messages' => ['Please provide proper password']]);
             }
 
-            $user = new User($this_email, sha1(md5($this_password)), $this_name, $this_surname,$this_phone,true,'',date(now()));
-            $this->userRepository->updateUser($user);
+            $user = new User($this_email, $this_password, $this_name, $this_surname,$this_phone,true,'',date("Y/m/d"));
+            $userRepository->updateUser($user);
 
-            return $this->render('updateUser', ['messages' => ['You\'ve succesfully change data!']]);
+            $url="http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/alltasks");
         }else{
             return $this->render('updateUser');
         }

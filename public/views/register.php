@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="public/css/main-style.css" type="text/css">
+    <script type="text/javascript" src="/../public/js/script.js" defer></script>
     <title>REGISTER</title>
 </head>
 <body>

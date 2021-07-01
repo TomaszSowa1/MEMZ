@@ -39,6 +39,11 @@ class DefaultController extends AppController{
         $this->render('alltasks');
 
     }
+    public function updateUser(){
+
+        $this->render('updateUser');
+
+    }
 
 
     
