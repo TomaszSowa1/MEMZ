@@ -4,7 +4,7 @@
     <title>LOGON PAGE</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" >
         <div class="logo">
             <img class="logo-img" src="public/img/logo.svg">
         </div>

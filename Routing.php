@@ -2,6 +2,7 @@
 
 require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/SecurityController.php';
+require_once 'src/controllers/tasksController.php';
 
 class Routing{
     public static $routes;
@@ -20,12 +21,11 @@ class Routing{
            die("wrong url"); 
         }
 
-        //todo contorller method
         $controller = self::$routes[$action];
         $object = new $controller;
         $action = $action ?: 'login';
-
         $object->$action();
+        
 
 
     }

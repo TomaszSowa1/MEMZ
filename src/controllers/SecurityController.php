@@ -52,4 +52,34 @@ class SecurityController extends AppController{
             return $this->render('register');
         }
     }
+
+    public function updateUser()
+    {
+        if($this->isGet()){
+            $email='email@email.com';
+            $this_user = $this->userRepository->getUser($email);
+            return $this->render('updateUser', ['model' => $this_user]);
+        }
+        elseif ($this->isPost()) {
+            $this_email = $_POST['email'];
+            $this_password = $_POST['password'];
+            $this_confirmedPassword = $_POST['confirmedPassword'];
+            $this_name = $_POST['name'];
+            $this_surname = $_POST['surname'];
+            $this_phone = $_POST['phone'];
+            
+
+            if ($this_password !== $this_confirmedPassword) {
+                return $this->render('updateUser', ['messages' => ['Please provide proper password']]);
+            }
+
+            $user = new User($this_email, sha1(md5($this_password)), $this_name, $this_surname,$this_phone,true,'',date(now()));
+            $this->userRepository->updateUser($user);
+
+            return $this->render('updateUser', ['messages' => ['You\'ve succesfully change data!']]);
+        }else{
+            return $this->render('updateUser');
+        }
+    }
+
 }

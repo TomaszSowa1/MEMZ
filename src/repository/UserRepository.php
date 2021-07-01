@@ -38,6 +38,31 @@ class UserRepository extends Repository{
         ]);
     }
 
+    public function updateUser(User $user){
+        
+        $stmt = $this->database->connect()->prepare('
+            UPDATE users set password=:password,name=:name,surname=:surname,phone=:phone
+            where email=:email;
+        ');
+        $data=[
+            'email'=>$user->getEmail(),
+            'password'=>$user->getPassword(),
+            'name'=>$user->getName(),
+            'surname'=>$user->getSurname(),
+            'phone'=>$user->getPhone(),
+        ]
+        $stmt->execute([
+            $user->getEmail() ,
+            $user->getPassword() ,
+            $user->getName() ,
+            $user->getSurname() ,
+            $user->getPhone() ,
+            $user->getEnabled() ,
+            $user->getSalt() ,
+            $user->getCreatedDt() ,
+        ]);
+    }
+
 
     public function getUserRole(int $UserId):?string{
         $stmt = $this->database->connect()->prepare('SELECT role_description FROM public.Roles r join UserRoles u on r.RoleId=u.RoleId  where u.UserId=:UserId');
