@@ -9,6 +9,22 @@ body {
     align-content: center;
     text-align: center;
 }
+input.myclass {
+    margin-top: 1.5em;
+    background-color: #a66ec0;
+    text-decoration: none;
+    opacity: 1;
+    border-color: #6C298B;
+    border:solid 3px;
+    padding: 10px;
+    border-radius: 15px;
+}
+::placeholder { 
+    color: white;
+    opacity: 1; 
+  }
+
+
 
 .topnav {
     background-color: #6C298B;
@@ -17,6 +33,34 @@ body {
     align-content:center;
     margin:auto;
 }
+select {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+textarea{
+    display: block;
+    width: 100%;
+    height: 150px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
 
 .topnav a {
     color: #f2f2f2;
@@ -156,10 +200,13 @@ input {
     align-self: center;
 }
 
+
+
 form{
     margin: 0 auto;
     margin-top: 2em;
-    width: 60%;
+    max-width: 800px;
+    width: 90%;
 }
 
 
@@ -249,34 +296,25 @@ header {
     border-bottom: 1px solid gray;
 }
 
-.add-project {
-    background: #2E6CD3 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
-    border-radius: 1.5em;
+.registerbtn{
     color: white;
-    letter-spacing: 0.1em;
+    margin-top: 3em;
+    width: 220px;
+    align-items: center;
+    background-color: #a66ec0;
+    text-decoration: none;
+    opacity: 1;
+    border: 0;
+    padding: 14px;
+    border-radius: 60px;
     text-align: center;
-    width: 20%;
-}
 
-.add-project>i {
-    padding: 1em 1em;
 }
-
-.search-bar {
-    width: 70%;
+footer {
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: left;
 }
-
-.search-bar>form>input {
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
-    border: 1px solid #707070;
-    border-radius: 23px;
-    width: 100%;
-    text-align: center;
-    letter-spacing: 0.72px;
-    color: #A8A8A8;
-    margin: 0;
-    box-sizing: border-box;
-}
-

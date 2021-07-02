@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/tasks.css">
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="public/css/tasks.css">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css"> -->
+    <link rel="icon" type="image/png" href="/../public/img/favicon.png">
     <title>tasks</title>
 </head>
 

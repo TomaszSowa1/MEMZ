@@ -44,6 +44,11 @@ class DefaultController extends AppController{
         $this->render('updateUser');
 
     }
+    public function not_found(){
+
+        $this->render('not_found');
+
+    }
 
 
     

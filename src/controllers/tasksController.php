@@ -16,8 +16,9 @@ class tasksController extends AppController
     }
     public function alltasks(){
         if ($this->isGet()) {
+            session_start();
             //$UserId= current id 
-            $UserId=1;
+            $UserId=$_SESSION['user_id'];
             $tasks=$this->tasksRepository->getalltasks($UserId);
             return $this->render('alltasks',['tasks' => $tasks]);
         }
@@ -26,8 +27,9 @@ class tasksController extends AppController
     public function addtask()
     {
         if ($this->isPost()) {
+            session_start();
             //get user id 
-            $UserId=1;
+            $UserId=$_SESSION['user_id'];
             $actual_end_date=null;
             $canceled=false;
             //getDate(strtotime("2011/05/21"))
@@ -35,11 +37,12 @@ class tasksController extends AppController
             $task = new tasks(0, $UserId, $_POST['task_topic'], $_POST['task_description'], $_POST['create_date'], $_POST['planned_end_date'], $actual_end_date, $_POST['status'], $_POST['status_reason'], $canceled);
 
             $result=$this->tasksRepository->createtasks($task);
-            echo $result;
+
             if($result)
             {
                 $url="http://$_SERVER[HTTP_HOST]";
                 header("Location: {$url}/alltasks");
+                // return $this->render('alltasks');
             }
         }else{
             return $this->render('addtask', ['messages' => $this->message]);
@@ -48,6 +51,7 @@ class tasksController extends AppController
 
     public function edittask()
     {
+        session_start();
         if ($this->isGet()) {
             $url="http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             $action = explode("/",$url);
@@ -60,7 +64,7 @@ class tasksController extends AppController
             return $this->render('edittask', ['task' => $task]);
         }
         elseif ($this->isPost()) {
-            //get user 
+            //get user ,0
             $UserId=1;
             $actual_end_date=null;
             $canceled=0;

@@ -18,14 +18,15 @@ class Routing{
     public static function run($url){
         $action = explode("/",$url)[0];
         if(!array_key_exists($action,self::$routes)){
-           die("wrong url"); 
+            // die("wrong url"); 
+            $url="http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/not_found");
+        }else{
+            $controller = self::$routes[$action];
+            $object = new $controller;
+            $action = $action ?: 'login';
+            $object->$action();
         }
-
-        $controller = self::$routes[$action];
-        $object = new $controller;
-        $action = $action ?: 'login';
-        $object->$action();
-        
 
 
     }

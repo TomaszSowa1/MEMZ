@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-
+    <link rel="icon" type="image/png" href="/../public/img/favicon.png">
     <title>Add task</title>
 </head>
 <body>

@@ -24,7 +24,12 @@ class SecurityController extends AppController{
             return $this->render('login',['messages'=>['Password is not correct']]);
         }
 
-        
+        session_start();
+        $_SESSION['login']=$user->getEmail();
+        $_SESSION['role']='admin';//$user->getRole();
+        $_SESSION['loggedIn']=true;
+        $_SESSION['user_id']='1';//$user->getUserId();
+        $_SESSION['password']=$this_password;
         $url="http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/mainpage");
     }
@@ -54,11 +59,21 @@ class SecurityController extends AppController{
         }
     }
 
+    function logout()
+	{
+		session_start();
+        setcookie(session_name(), "", time() - 3600); 
+        session_destroy(); 
+        session_write_close();
+		return $this->render('login');
+	}
+
     public function updateUser()
     {
+        session_start();
         $userRepository = new UserRepository();
         if($this->isGet()){
-            $that_email='tomasz@sowa.com';
+            $that_email=$_SESSION['login'];
             $this_user = $userRepository->getUser($that_email);
             return $this->render('updateUser', ['model' => $this_user]);
         }
@@ -79,7 +94,7 @@ class SecurityController extends AppController{
                 return $this->render('updateUser', ['messages' => ['Please provide proper password']]);
             }
 
-            $user = new User($this_email, $this_password, $this_name, $this_surname,$this_phone,true,'',date("Y/m/d"));
+            $user = new User($this_email, $this_password, $this_name, $this_surname,$this_phone,true,'',date("Y/m/d"),$_SESSION['role']);
             $userRepository->updateUser($user);
 
             $url="http://$_SERVER[HTTP_HOST]";
@@ -87,6 +102,10 @@ class SecurityController extends AppController{
         }else{
             return $this->render('updateUser');
         }
+    }
+
+    public function not_found(){
+        return $this->render('not_found');
     }
 
 }

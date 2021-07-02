@@ -9,8 +9,9 @@ class User{
     private $enabled;
     private $salt;
     private $created_dt;
+    private $Role;
 
-    public function __construct($emial, $password, $name, $surname, $phone, $enabled, $salt, $created_dt)
+    public function __construct($emial, $password, $name, $surname, $phone, $enabled, $salt, $created_dt,$Role)
     {
         $this->emial = $emial;
         $this->password = $password;
@@ -20,6 +21,7 @@ class User{
         $this->enabled = $enabled;
         $this->salt = $salt;
         $this->created_dt = $created_dt;
+        $this->Role = $Role;
     }
 
     public function getPhone()
@@ -60,6 +62,15 @@ class User{
     public function setCreatedDt($created_dt): Date
     {
         $this->created_dt = $created_dt;
+    }
+    public function gerRole()
+    {
+        return $this->Role;
+    }
+
+    public function setRole($Role)
+    {
+        $this->Role = $Role;
     }
 
 

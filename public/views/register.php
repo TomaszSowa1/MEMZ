@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <head>
+<link rel="icon" type="image/png" href="/../public/img/favicon.png">
     <link rel="stylesheet" href="public/css/main-style.css" type="text/css">
     <script type="text/javascript" src="/../public/js/script.js" defer></script>
     <title>REGISTER</title>
@@ -22,14 +23,15 @@
                     }
                     ?>
                 </div>
-                <input type="text" name="email" placeholder="email@email.com">
-                <input type="password" placeholder="password" name="password">
-                <input name="confirmedPassword" type="password" placeholder="confirm password">
-                <input name="name" type="text" placeholder="name">
-                <input name="surname" type="text" placeholder="surname">
-                <input name="phone" type="text" placeholder="phone">
+                <input class="myclass"  type="text" name="email" placeholder="email@email.com">
+                <input class="myclass"  type="password" placeholder="password" name="password">
+                <input class="myclass"  name="confirmedPassword" type="password" placeholder="confirm password">
+                <input class="myclass"  name="name" type="text" placeholder="name">
+                <input class="myclass"  name="surname" type="text" placeholder="surname">
+                <input class="myclass"  name="phone" type="text" placeholder="phone">
                 <div class="login-btn"><button type="submit"></button></div>
             </form>
         </div>  
+        <div class="registerbtn" onclick="location.href='login'" >You already have account? Login</div>
     </div>
 </body>

@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="public/css/main-style.css" type="text/css">
+    <link rel="icon" type="image/png" href="/../public/img/favicon.png">
+    <link rel="stylesheet" href="/../public/css/main-style.css" type="text/css">
     <title>LOGON PAGE</title>
 </head>
 <body>
@@ -20,10 +22,13 @@
                     }
                     ?>
                 </div>
-                <input type="text" name="email" placeholder="email@email.com">
-                <input type="password" placeholder="password" name="password">
+                <input class="myclass" type="text" name="email" placeholder="email@email.com">
+                <input class="myclass"  type="password" placeholder="password" name="password">
                 <div class="login-btn"><button type="submit"></button></div>
+                
             </form>
+            
         </div>  
+        <div class="registerbtn" onclick="location.href='register'">Don't have account?<br> Register</div>
     </div>
 </body>
