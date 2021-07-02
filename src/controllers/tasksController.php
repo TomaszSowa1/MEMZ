@@ -65,7 +65,7 @@ class tasksController extends AppController
         }
         elseif ($this->isPost()) {
             //get user ,0
-            $UserId=1;
+            $UserId=$_SESSION['user_id'];
             $actual_end_date=null;
             $canceled=0;
             if($_POST['status']==100){
